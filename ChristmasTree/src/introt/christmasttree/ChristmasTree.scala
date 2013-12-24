@@ -1,6 +1,7 @@
 package introt.christmasttree
 
 import Colors._
+import scala.annotation.tailrec
 
 object ChristmasTree {
   def main(args: Array[String]) {
@@ -8,6 +9,7 @@ object ChristmasTree {
 	  case Some(x) if x.toInt > 1 => x.toInt
 	  case None => 10
 	}
+	print("\033[H\033[2J")
     while (true) {
       printTree(n)
       Thread.sleep(900)
@@ -15,7 +17,7 @@ object ChristmasTree {
     }
   }
   def printTree(n: Int) {
-    def printTree(n: Int, curr: Int) {
+    @tailrec def printTree(n: Int, curr: Int) {
       if (n == 0) {
         println(" " * (curr / 2 - 1) + "| |" magenta)
         println(s"\n ${(" "*n)} Merry Christmas!" red)
