@@ -4,9 +4,13 @@ import Colors._
 
 object ChristmasTree {
   def main(args: Array[String]) {
+	val n = args.headOption match{
+	  case Some(x) if x.toInt > 1 => x.toInt
+	  case None => 10
+	}
     while (true) {
-      printTree(10)
-      Thread.sleep(800)
+      printTree(n)
+      Thread.sleep(900)
       print("\033[H\033[2J")
     }
   }
@@ -18,6 +22,7 @@ object ChristmasTree {
       } else {
         val s = (for (i <- 1 to curr) yield if (i % 2 == 1) "^" randomBkGreen else "@" random).mkString
         println((" " * (n)) + s)
+        println
         printTree(n - 1, curr + 2)
       }
 

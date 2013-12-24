@@ -13,7 +13,7 @@ trait Colors {
     
     val r = new Random()
     
-    val _all = List(blue,red,green,yellow,white,magenta,cyan)
+    val _all = List(blue,red,green,yellow,white,magenta,cyan,s)
     
     def random = r shuffle _all head
     
